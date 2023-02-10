@@ -8,6 +8,8 @@ const grigliaY = parseInt(10)
 
 let elGrid = document.querySelector('.griglia') //elementGrid
 
+elGrid.innerHTML = null //reset griglia
+
 for (let i=0; i<grigliaX*grigliaY; i++) {
     elGrid.innerHTML += '<div class="cella" style="width: calc(100% / ' + grigliaX + ');" >' + parseInt(i+1) + '</div>'
 }
@@ -26,6 +28,9 @@ for (let i=0; i<elCells.length; i++) {
 generaBombe(grigliaX, grigliaY)
 
 })
+
+
+
 
 function generaBombe (x, y) {
 	let array = parseInt
