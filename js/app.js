@@ -16,7 +16,6 @@ const elCells = document.querySelectorAll('.cella') //elementCells
 
 for (let i=0; i<elCells.length; i++) {
 	const cell = elCells[i]
-	console.log (cell)
 
 	cell.addEventListener('click', function () {
 		console.log(i + 1)
@@ -24,4 +23,29 @@ for (let i=0; i<elCells.length; i++) {
 	})
 }
 
+generaBombe(grigliaX, grigliaY)
+
 })
+
+function generaBombe (x, y) {
+	let array = parseInt
+	array = []
+
+	while (array.length<16) {
+		let rand = parseInt(Math.floor(Math.random()*(x*y)))
+		if (!isPresent(rand, array)){
+			array[array.length] = rand
+			//console.log(rand, array)
+		}
+	}
+}
+
+function isPresent (a, b) {
+	let check = 0
+	for(let i=0; i<b.length; i++) {
+		if (a == b[i]) {
+			check = 1
+		}
+	}
+	return (check == 1)
+}
