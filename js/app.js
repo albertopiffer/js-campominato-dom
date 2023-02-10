@@ -19,17 +19,27 @@ const elCells = document.querySelectorAll('.cella') //elementCells
 const posBombe = generaBombe(grigliaX, grigliaY)
 console.log(posBombe)
 
+let punteggio = 0
+
+let giaPremuto = []	//evita che punteggio incrementi se si preme ancora stessa cella
+
 for (let i=0; i<elCells.length; i++) {
 	const cell = elCells[i]
 
 	cell.addEventListener('click', function () {
 		//console.log(i + 1)
 		if (!isPresent(i, posBombe)){
-			cell.style.backgroundColor = "rgba(0, 0, 255, 0.5)"
+			if (!isPresent(i, giaPremuto)) {
+				cell.style.backgroundColor = "rgba(0, 0, 255, 0.5)"
+				giaPremuto.push (i)
+				console.log (giaPremuto)
+				punteggio++
+			}
 		}
 		else {
 			cell.style.backgroundColor = "rgba(255, 0, 0, 0.7)"
 			console.log('BRUH')
+			console.log('punteggio: ', punteggio)
 		}
 		
 	})
