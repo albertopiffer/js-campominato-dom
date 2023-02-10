@@ -16,16 +16,24 @@ for (let i=0; i<grigliaX*grigliaY; i++) {
 
 const elCells = document.querySelectorAll('.cella') //elementCells
 
+const posBombe = generaBombe(grigliaX, grigliaY)
+console.log(posBombe)
+
 for (let i=0; i<elCells.length; i++) {
 	const cell = elCells[i]
 
 	cell.addEventListener('click', function () {
-		console.log(i + 1)
-		cell.style.backgroundColor = "rgba(102, 44, 174, 0.3)"
+		//console.log(i + 1)
+		if (!isPresent(i, posBombe)){
+			cell.style.backgroundColor = "rgba(0, 0, 255, 0.5)"
+		}
+		else {
+			cell.style.backgroundColor = "rgba(255, 0, 0, 0.7)"
+			console.log('BRUH')
+		}
+		
 	})
 }
-
-generaBombe(grigliaX, grigliaY)
 
 })
 
@@ -43,6 +51,7 @@ function generaBombe (x, y) {
 			//console.log(rand, array)
 		}
 	}
+	return array
 }
 
 function isPresent (a, b) {
@@ -54,3 +63,6 @@ function isPresent (a, b) {
 	}
 	return (check == 1)
 }
+
+//rgba(255, 0, 0, 0.7)
+//rgba(0, 0, 255, 0.5)
