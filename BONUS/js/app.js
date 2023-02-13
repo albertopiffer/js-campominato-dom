@@ -3,8 +3,11 @@ playButton.addEventListener('click', main)
 
 function main () {
 
-	const grigliaX = parseInt(10)
-	const grigliaY = parseInt(10)
+	const difficolta = document.querySelector('.diff')
+	//console.log (difficolta.value)
+
+	const grigliaX = parseInt(difficolta.value)
+	const grigliaY = parseInt(difficolta.value)
 	
 	//console.log(grigliaX, grigliaY, grigliaX*grigliaY)
 	
